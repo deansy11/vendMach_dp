@@ -14,11 +14,3 @@ describe('Item', () => {
   });
 
 });
-
-//   it('can be persisted', () => {
-//     Item.create({description : "Skittles", cost: 75, quantity: 10}).then(item) => {
-//       expect(item.id).toBeTruthy();
-//       // remove item from database
-//       return item.destroy();
-//     }
-//   })
