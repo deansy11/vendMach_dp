@@ -1,3 +1,35 @@
+const app = require("../../index");
+const request = require("supertest");
+const models = require("../../models");
+const Item = models.item;
+
+describe("Item routes", () => {
+  console.log("In here?");
+  describe("GET /customer/item - get list of all items", () => {
+    it("has successful status code so we know the routes were found", () => {
+      return request(app) //from 'app' module.exporter in index.js
+        .get("/customer/item")
+        .expect(200);
+    });
+
+    it("has items from database", () => {
+      return Item.create({ description: "Runts", cost: 120, quantity: 10 }).then((item) => {
+        return request(app)
+        .get("/customer/item")
+        .then((res) => {
+
+      })
+          expect(res.body.data[0].description).toEqual("Runts");
+        })
+    });
+  })
+})
+
+
+
+
+
+
 // const app = require("../../index.js");
 // // only need to require 'supertest' in the routes tests
 // const supertest = require("supertest");

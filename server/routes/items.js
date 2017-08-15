@@ -10,4 +10,10 @@ router.get("/customer/item", (req, res) => {
   })
 })
 
+// router.post("/customer/items/:itemId/purchases", (req, res) => {
+//   models.item.findById(:id).then(() => {
+//
+//   })
+// })
+
 module.exports = router;
