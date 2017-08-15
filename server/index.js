@@ -60,6 +60,7 @@ mongoose.connect("mongodb://localhost:27017/CHANGEMEPLEASEEEEEEE");
 // **************** ROUTES ↓
 
 app.use("/", require("./routes/homepage"));
+app.use(require("./routes/vending"));
 
 // **************** ROUTES ↑
 
