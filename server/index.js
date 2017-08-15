@@ -60,7 +60,8 @@ mongoose.connect("mongodb://localhost:27017/CHANGEMEPLEASEEEEEEE");
 // **************** ROUTES ↓
 
 app.use("/", require("./routes/homepage"));
-app.use(require("./routes/vending"));
+// need to require these!
+app.use(require("./routes/items"));
 
 // **************** ROUTES ↑
 
@@ -82,4 +83,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = app;
+module.exports = app; //we are requesting the full content of module.exports on our router tests
