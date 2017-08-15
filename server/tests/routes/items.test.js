@@ -4,7 +4,6 @@ const models = require("../../models");
 const Item = models.item;
 
 describe("Item routes", () => {
-  console.log("In here?");
   describe("GET /customer/item - get list of all items", () => {
     it("has successful status code so we know the routes were found", () => {
       return request(app) //from 'app' module.exporter in index.js
@@ -23,8 +22,14 @@ describe("Item routes", () => {
         })
     });
   })
-})
-
+  describe("POST /customer/item/:itemId/purchases", () => {
+    it("has successful status routes", () => {
+      return request(app)
+        .get("/customer/item/:itemId/purchases")
+        .expect(200);
+      });
+    })
+  });
 
 
 
