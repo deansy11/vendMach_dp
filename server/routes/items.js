@@ -16,7 +16,7 @@ router.post("/customer/item/:itemId/purchases", (req, res) => {
   models.item.findById(req.params.itemId)
   .then((item) => {
     console.log(item.dataValues.quantity);
-    res.json("/customer/item/:itemId/purchases", item.dataValues.quantity)
+    res.json("/customer/item/:itemId/purchases", {item : quantity} )
   })
 })
 
