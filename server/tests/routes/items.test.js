@@ -42,7 +42,6 @@ describe("Item", () => {
             console.log(customer);
             request(app)
               .post(`/customer/item/${item.id}/purchases`, {})
-              console.log(item.quantity);
               .then(res => {
                 expect(res.body.status).toBe("Success");
               });
