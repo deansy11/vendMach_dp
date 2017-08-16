@@ -41,17 +41,14 @@ describe("Item", () => {
           }).then(customer => {
             console.log(customer);
             request(app)
-              .post(`/customer/item/${item.id}/purchases`, { })
+              .post(`/customer/item/${item.id}/purchases`, {})
+              console.log(item.quantity);
               .then(res => {
                 expect(res.body.status).toBe("Success");
               });
-          })
-
-            // .then(res => { item : quantity });
-            // console.log(res.body.data[0].quantity)
-            // expect(res.body.data[0].quantity).toEqual("10");
+          });
         });
       });
+      })
     });
   });
-});
