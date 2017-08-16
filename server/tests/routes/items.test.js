@@ -2,6 +2,7 @@ const app = require("../../index");
 const request = require("supertest");
 const models = require("../../models");
 const Item = models.item;
+const Customer = models.customer;
 
 describe("Item", () => {
   // test will clear data and return to original state after each test
@@ -29,17 +30,26 @@ describe("Item", () => {
       });
     });
     describe("POST /customer/item/:itemId/purchases", () => {
-      it("makes successful post rendering quantity of ", () => {
+      it("renders item and customer info", () => {
         return Item.create({
           description: "Runts",
           cost: 120,
           quantity: 10
         }).then(item => {
-          return request(app)
-            .post("/customer/item/1/purchases", { quantity })
-            .then(res => {})
-            .expect(res.body.data[0].quantity)
-            .toEqual("10");
+          Customer.create({
+            money: 140
+          }).then(customer => {
+            console.log(customer);
+            request(app)
+              .post(`/customer/item/${item.id}/purchases`, { })
+              .then(res => {
+                expect(res.body.status).toBe("Success");
+              });
+          })
+
+            // .then(res => { item : quantity });
+            // console.log(res.body.data[0].quantity)
+            // expect(res.body.data[0].quantity).toEqual("10");
         });
       });
     });

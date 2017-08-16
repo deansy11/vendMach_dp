@@ -2,14 +2,14 @@
 module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface.createTable('customers', {
-      id: {
+    id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING
+      money: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
